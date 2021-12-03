@@ -1,0 +1,547 @@
+﻿@font-face{
+    font-family: Roboto;
+    src: url('fonts/Roboto-Regular.ttf');
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 45em;
+    background-color: white;
+    margin: 0;
+    text-decoration: none;
+    font-family: 'Roboto';
+}
+
+.logo{
+    margin-left: 1%;
+}
+
+.barra-superior{
+    display:  flex;
+    flex-direction:  row;
+    margin-bottom:  5px;
+}
+
+.barra-superior input[type="text"]{
+    border:  1px solid #ced4da;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    color:  #212529;
+    display: block;
+    font-size:  1rem;
+    font-weight: 400;
+    line-height: 1;
+    padding:  .3rem .3rem;
+    width:  40%;
+    height: 100%;
+    margin-left: 30px;
+    margin-top:  22px;
+    text-align: left;
+}
+
+.barra-superior input[type="text"]:focus{
+    border-color:  #86b4f7;
+    outline:  0;
+}
+
+.btn{
+    border:  1px solid transparent;
+    border-radius: 6px;
+    color: white;
+    width:  4%;
+    height: 11%;
+    margin-left: -1px;
+    margin-top:  22px;
+    padding:  .4rem .4rem;
+    text-align: center;
+}
+
+.btn-search{
+    background-color:  #83BA7E;
+    border-color: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-search:active{
+    background-color:  #1D5319;
+}
+
+.header {
+    background-color: #569950;
+    color: white;
+    text-align: left;
+    overflow: hidden;
+}
+
+.login{
+    color:  #FFFFFF;
+    font-family: Roboto;
+    font-size: 1em;
+    margin-left: 10%;
+    margin-top: 1.65em;
+    text-decoration: none;
+}
+
+.logo__index{
+	position: absolute;
+	width: 160px;
+	height: 42px;
+	top: 12px;
+	left: 12px;
+	opacity: 0;
+}
+
+.icon{
+    border:  none;
+    cursor:  pointer;
+    font-size:  2rem;
+    background-color: #569950;
+    position: absolute;
+    right: 40px;
+    top: 20px;
+}
+
+.icon-cart{
+    color:  #FFFFFF;
+}
+
+.icon-cart: hover{
+    /*hover cuando estoy sobre el elemento, no presionado
+    */
+    color: #83BA7E;
+}
+
+
+.icon-cart_2{
+    color:  #FFFFFF;
+    padding-right: 5%;
+    margin-left: 27%;
+}
+
+.barra-inferior {
+    background-color: #83BA7E;
+    color: white;
+    text-align: left;
+    overflow: hidden;
+    padding:  0.5em;
+}
+
+.categoria{
+    color:  white;
+    text-decoration: none;
+    margin-left: 8%;
+}
+
+.contacto{
+    text-align: right;
+    color:  white;
+    text-decoration: none;
+    margin-left: 8%;
+    padding-left: 10%;
+}
+
+/*Aqui terminan los estilos del header y las barras superiores
+Inserte aqui sus estilos*/
+
+.inicio_sesion{
+	margin-top: 4em;
+  	border-radius: 8px;
+  	height: 25em;
+  	width: 30em;
+  	background-color: #EDEDED;
+}
+
+.registrarse{
+	margin-top: 4em;
+  	border-radius: 8px;
+  	height: 28em;
+  	width: 30em;
+  	background-color: #EDEDED;
+}
+
+.enviar_comentarios{
+	text-align: left;
+	margin-top: 2em;
+  	border-radius: 8px;
+  	height: 25em;
+  	width: 50em;
+  	background-color: #EDEDED;
+}
+
+.encabezado_seccion{
+	padding-left: 10%;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	color: #000000;
+}
+
+.encabezado_box{
+	padding-top: 2em;
+	padding-bottom: 1em;
+	color: #828282;
+}
+
+.campo_box{
+	display: inline;
+	padding-top: 10em;
+	padding-left: 2em;
+	padding-right: 2em;
+	color: #828282;
+}
+
+.info_comentarios{
+	border-radius: 4px;
+	border-width: 2px;
+	color: #000000;
+	border-color: #000000;
+	width: 90%;
+	min-height: 13em;
+	margin: 10px 0px;
+	padding: 0.5em;
+}
+
+.info{
+	border-radius: 4px;
+	border-width: 2px;
+	color: #000000;
+	border-color: #000000;
+	width: 60%;
+	margin: 10px 0px;
+	padding: 0.5em;
+}
+
+.inicio{
+	border-radius: 4px;
+	border-width: 0em;
+	padding: 0.5em;
+	margin: 4px 4.5px;
+	text-align: center;
+	width: 7.5em;
+	background-color: #83BA7E;
+}
+
+.enlace_btn{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.enlace{
+	color: #3E9AEE;
+	text-decoration: none;
+}
+
+/*-----------------------------*/
+
+.product__img{
+	width: 100%;
+	height: auto;
+	max-width: 200px;
+	max-height: 300px;
+}
+
+.product__img2{
+	width: 100%;
+	height: auto;
+	max-width: 125px;
+	max-height: 182px;
+}
+
+.encabezado_index{
+	padding-top: 0em;
+	padding-bottom: 1em;
+	color: #000000;
+}
+
+.product__description{
+	bottom: 0;
+}
+
+.container-products{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 15px;
+}
+
+.xbox:before{
+	content: "50% off";
+	background: #FF4E00;
+	padding: 10px;
+	position: absolute;
+}
+
+.off:before{
+	content: "20% off";
+	background: #FF4E00;
+	padding: 5px;
+	position: relative;
+	bottom: 0;
+	left: 47%;
+}
+
+.product{
+	border: 1px solid #ccc;
+	padding: 20px;
+	text-align: center;
+}
+
+.content2{
+	padding: 0 20px;
+}
+
+.img_publicidad{
+	width: 100%;
+	max-width: 1366;
+	height: auto;
+	margin: 0 auto;	
+}
+
+.table{
+	background-color: #E8E8E8;
+	border: none;
+}
+
+tr{
+	min-height: 250px;
+}
+
+.product__title{
+	color: #000000;
+	text-align: left;
+}
+
+table.product__title{
+	color: #000000;
+	text-align: left;
+}
+
+.product__price{
+	text-align: center;
+	color: #FF4E00;
+	font-weight: bold;
+	font-size: 26px;
+}
+
+table.product__price{
+	text-align: center;
+	color: #FF4E00;
+	font-weight: bold;
+	font-size: 26px;
+}
+
+.product__icon{
+	display: block;
+	margin-bottom: 5px 0;
+}
+
+
+/*CARRITO ssssssssssssssssssssssssssssssssssssssssssssssssssss*/
+
+.carrito_compras{
+	display: grid;
+	grid-gap: 5px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.img_producto{
+	width: 100%;
+	height: auto;
+	max-width: 200px;
+	max-height: 300px;
+	min-width: 100px;
+	min-height: 150px;
+}
+
+.campo_box{
+	display: inline;
+	margin-top: 10%;
+	color: #828282;
+}
+
+.campo_box_2{
+	display: inline;
+	color: #828282;
+	margin-top: 5%;
+	margin-left: 7%;
+}
+
+.centrar{
+	text-align: center;
+}
+
+.color{
+	color: #828282;
+}
+
+.campo_box_3{
+	display: inline;
+	padding-left: 150px;
+	margin-top: 0;
+	color: #828282;
+}
+
+.campo_cantidad{
+	display: inline;
+	margin-top: 10%;
+	margin-left: 11%;
+	color: #000000;
+}
+
+.campo_cantidad_2{
+	display: inline;
+	margin-top:  0;
+	padding-left: 50pxs;
+	color: #000000;
+}
+
+.campo_cantidad_3{
+	margin-top:  3%;
+	margin-left: 44%;
+	color: #000000;
+}
+
+.icon_2{
+	border:  none;
+	margin-left: 5%;
+	margin-top: 2%;
+	cursor:  pointer;
+	font-size:  200%;
+}
+
+.icon-delete{
+	color:  #dc3545;
+	background-color: #EDEDED;
+}
+
+.icon-delete: hover{
+	/*hover cuando estoy sobre el elemento, no presionado
+	*/
+	color: #e52436;
+}
+
+
+/*lista*/
+.list{
+	list-style-type:  none;
+	padding-left:  0;
+}
+
+.producto{
+	padding-top: 5%;
+	margin-right: 1%;
+	background-color: #efefef;
+	border-radius:  2px;
+	display:  flex;
+	flex-direction: row;
+	gap:  2%;
+}
+
+.list li{
+	padding-top: 3%;
+	background-color: #efefef;
+	border-radius:  2px;
+	display:  flex;
+	flex-direction: row;
+	gap:  10px;
+}
+
+.list li span{
+	/*
+	span es para cuando tenemos texto y poder
+	personalizarlo, o que una palabra del texto
+	resalte, para eso span
+	*/
+	flex-grow: 1;
+}
+
+.btn_2{
+	background-color:  #83BA7E;
+	border-color: #0d6efd;
+	border: 1px solid;
+	width: 100px;
+	height: 40px;
+	margin-left: 78%;
+	color: white;
+	border-radius: 4px;
+    border-width: 0em;
+    padding: 0.5em;
+    text-align: center;
+    width: 7.5em;
+}
+
+.btn-save{
+	background-color:  #376fc1;
+	border-color: #0d6efd;
+}
+
+.btn-save:active{
+	background-color:  #0d53b9;
+}
+
+
+@media screen and (min-width: 768px){
+	.container-products{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+	}
+
+	.carrito_compras{
+	display: grid;
+	grid-gap: 10px;
+	padding-left: 100px;
+	padding-right: 100px;
+	}
+
+	.campo_cantidad_2{
+	display: inline;
+	margin-top:  0;
+	position: absolute;
+	right: 200px;
+	color: #000000;
+	}
+
+	.campo_box_3{
+	display: inline;
+	position: absolute;
+	right: 300px;
+	margin-top: 0;
+	color: #828282;
+	}
+}
+
+@media screen and (min-width: 1024px){
+.container-products{
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 10px;
+	}
+
+	.carrito_compras{
+	display: grid;
+	grid-gap: 15px;
+	padding-left: 200px;
+	padding-right: 200px;
+	}
+
+	.campo_cantidad_2{
+	display: inline;
+	margin-top:  0;
+	position: absolute;
+	right: 200px;
+	color: #000000;
+	}
+
+	.campo_box_3{
+	display: inline;
+	position: absolute;
+	right: 300px;
+	margin-top: 0;
+	color: #828282;
+	}
+}
