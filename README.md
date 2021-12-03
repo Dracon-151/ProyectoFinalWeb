@@ -1,5 +1,5 @@
 # ProyectoFinalWeb
-Equipo - Alvarado Palacios, Sepúlveda Ibarra, Gonzalez Vega, Raúl Mendoza
+Equipo - Alvarado Palacios Demian Alexis, Sepúlveda Ibarra César Daniel, Gonzalez Vega José Eduardo,
 
 /*
 Desarrollar una plataforma e-commerce que permita a los usuarios registrarse, iniciar sesión, navegar por la plataforma, agregar productos al carrito de compras y realizar la compra de productos.
