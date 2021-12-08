@@ -1,0 +1,28 @@
+CREATE DATABASE estim;
+USE estim;
+CREATE TABLE producto(idProducto INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, 
+descripcion VARCHAR(100) NOT NULL, precio FLOAT NOT NULL, rutaFoto VARCHAR(100) NOT NULL);
+
+CREATE TABLE usuario(idUsuario INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, 
+email VARCHAR(100) UNIQUE NOT NULL, contrasena VARCHAR(100) NOT NULL);
+
+CREATE TABLE ventas(idVenta INT AUTO_INCREMENT PRIMARY KEY, idUsuario INT NOT NULL, 
+idProducto INT NOT NULL, cantidad INT NOT NULL, fecha DATETIME NOT NULL, FOREIGN KEY(idUsuario) REFERENCES usuario(idUsuario) 
+ON DELETE NO ACTION ON UPDATE CASCADE, FOREIGN KEY(idProducto) REFERENCES producto(idProducto) ON DELETE NO ACTION ON UPDATE CASCADE);
+
+INSERT INTO producto VALUES(0, "XBOX 360", "-250GB -2 Controles -1 Juego", 3499, '"img/xbox360.png"');
+INSERT INTO producto VALUES(0, "PlayStation 2", "-250GB -1 Control -2 Juegos", 3499, '"img/play2.png"');
+INSERT INTO producto VALUES(0, "Nintendo Wii", "-128GB -1 Control -Wii Sports incluido", 2499, '"img/wii.png"');
+INSERT INTO producto VALUES(0, "Virtual Boy", "-1MB -1 Control -2 Juegos", 12499, '"img/virtual boy.png"');
+INSERT INTO producto VALUES(0, "Juegosfera", "-100TB -Es esférica -Pi Juegos incluidos", 1499, '"img/juegosfera.png"');
+
+INSERT INTO producto VALUES(0, "Mario Kart 8 Deluxe", "-Para Nintendo Switch", 1099, '"img/control game cube.png"');
+INSERT INTO producto VALUES(0, "Mario Oddyssey", "-Para Nintendo Switch", 1199, '"img/control wii pro.png"');
+INSERT INTO producto VALUES(0, "Arms", "-Para Nintendo Switch", 1049, '"img/control"');
+INSERT INTO producto VALUES(0, "Rabbids kingdom battle", "-Para Nintendo Switch", 1049, '"img/controles wii.png"');
+INSERT INTO producto VALUES(0, "Animal crossing new horizons", "-Para Nintendo Switch", 1399, '"img/motion plus.png"');
+INSERT INTO producto VALUES(0, "Pokémon Lets go Eevee", "-Para Nintendo Switch", 1599, '"img/pokemon.png"');
+INSERT INTO producto VALUES(0, "Super Smash Bros", "-Para Nintendo Switch", 1799, '"img/smash.png"');
+INSERT INTO producto VALUES(0, "Zelda Breath of the Wild", "-Para Nintendo Switch", 1599, '"img/zelda.png"');
+INSERT INTO producto VALUES(0, "Astral Chain", "-Para Nintendo Switch", 1499, '"img/astralchain.png"');
+INSERT INTO producto VALUES(0, "Assassins creed III", "-Para Nintendo Switch", 1499, '"img/assassins.png"');

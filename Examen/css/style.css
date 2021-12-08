@@ -222,16 +222,33 @@ Inserte aqui sus estilos*/
 	margin: 4px 4.5px;
 	text-align: center;
 	width: 7.5em;
-	background-color: #83BA7E;
+	background: #83BA7E;
 }
+
 
 .enlace_btn{
 	color: #FFFFFF;
+	font-size: 10em;
+	padding:  20px;
+	text-decoration: none;
+}
+
+.enlace_btn_rojo{
+	color: red;
+	font-size: 10em;
+	padding:  20px;
 	text-decoration: none;
 }
 
 .enlace{
 	color: #3E9AEE;
+	text-decoration: none;
+}
+
+.text_white{
+	color:  #FFFFFF;
+	font-size: 10em;
+	padding:  20px;
 	text-decoration: none;
 }
 
@@ -413,17 +430,40 @@ table.product__price{
 	font-size:  200%;
 }
 
+.button-red{
+	background: #dc3545 ;
+	background-color: #EDEDED;
+}
+
+.button-general{
+	background:  #EDEDED;
+	color: #darkred;
+	display:  inline-block;
+	font-size: 1.25em;
+	margin:  20px;
+	text-decoration:  none;
+}
+
+.button span{
+	margin-right: 10px;
+}
+
 .icon-delete{
 	color:  #dc3545;
 	background-color: #EDEDED;
 }
 
-.icon-delete: hover{
-	/*hover cuando estoy sobre el elemento, no presionado
-	*/
-	color: #e52436;
+.icon-delete:active{
+    background-color:  blue;
 }
 
+.icon-delete:hover{
+	/*hover cuando estoy sobre el elemento, no presionado
+	*/
+	box-shadow: 0px 0px 0px;
+	padding-top: 7px;
+	color: #e52436;
+}
 
 /*lista*/
 .list{
@@ -545,3 +585,15 @@ table.product__price{
 	color: #828282;
 	}
 }
+
+.carrito{
+	border-radius: 4px;
+	border-width: 0em;
+	padding: 0.5em;
+	margin: 4px 4.5px;
+	text-align: center;
+	width: 7.5em;
+	background-color: #83BA7E;
+}
+
+/*Estilos 7 de diciembre:  Index y botones*/

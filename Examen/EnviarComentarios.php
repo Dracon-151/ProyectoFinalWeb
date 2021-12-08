@@ -10,15 +10,17 @@
 	<a class="logo__index" href="Index.html">a</a>
 	<header class ="header">
 		<form action ="">
-			
 				<div class = "barra-superior">
 					<img src="img/logo.png" class ="logo">
 					<input type = "text" id ="task">
 					<button class = "btn btn-search" id="btnSearch">
 						<i class="fas fa-search"></i>
 					</button>
-					<a href = "Login.html" class = "login">
+					<a href = "Login.php" class = "login">
 				    Iniciar sesión</a>
+					<a href = "Carrito.html">
+                        <i class="icon icon-cart fas fa-shopping-cart"></i>
+                    </a>
 				</div>
 		</form>
 	</header>
@@ -40,42 +42,26 @@
 				Contáctanos</a>
 			</div>
 	</div>
-
 	<main class="container">
-		<h2 class="encabezado_seccion">Carrito de compras</h2>
-		<center>
-			<section class = "carrito_compras">
-					<table class="table">
-						<tr><td><img src="img/smash.png" class ="img_producto"></td>
-						<td><h3> Super Smash Bros Ultimate </h3></td>
-						<td><h3 class="centrar color">Cantidad<p class="centrar"> 2 </p></h3></td>
-						<td><h3 class="campo_cantidad"> $1,599.00 </h3></td>
-						<td><button class="icon_2 icon-delete">
-									<i class="fas fa-trash-alt"></i>
-						</button></td>
-					</table>
 
-					<table class="table">
-						<tr><td><img src="img/pokemon.png" class ="img_producto"></td>
-						<td><h3> Pokemon Lets Go Eevee </h3></td>
-						<td><h3 class="centrar color">Cantidad<p class="centrar"> 1 </p></h3></td>
-						<td><h3 class="campo_cantidad"> $1,799.00 </h3></td>
-						<td><button class="icon_2 icon-delete">
-									<i class="fas fa-trash-alt"></i>
-						</button></td>
-					</table>
-					
-					<ul>
-						<h3 class="campo_box_3"> Envío: </h3>
-						<h3 class="campo_cantidad_2"> Gratis </h3>
-					</ul>
-					<ul>
-						<h3 class="campo_box_3"> Total: </h3>
-						<h3 class="campo_cantidad_2"> $4,997,00 </h3>
-					</ul>
-					<ul>
-						<div class = "btn_2"><a class="enlace_btn" href="Login.html">Comprar</a></div>
-					</ul>
+		<h2 class="encabezado_seccion">Enviar comentarios</h2>
+		<center>
+			<section class = "enviar_comentarios">
+				<br>
+				<h3 class="campo_box">Nombre    completo: </h3>
+				<input type="text" class="info">
+				<br>
+				<h3 class="campo_box">Correo electrónico: </h3>
+				<input type="text" class="info">
+				<h3 class="campo_box">Comentarios: </h3>
+				
+				<center>
+					<textarea class="info_comentarios"></textarea>
+					<div class = "inicio">
+					<a href="Index.html" class="enlace_btn">Enviar</a>					
+					</div>	
+				</center>
+
 			</section>
 		</center>
 	</main>

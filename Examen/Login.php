@@ -1,9 +1,18 @@
-<!DOCTYPE html>
 <html lang = "en">
 <head>
 	<meta charset ="UTF-8">
-	<title>InicioSesion</title>
+	<title>Estim</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<?php 
+		session_start();	
+		if(isset($_SESSION['idSesion'])){
+			$usuario = $_SESSION['idSesion'];
+		}else{
+			session_destroy();
+		}		
+	?>
+
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -17,7 +26,7 @@
 						<i class="fas fa-search"></i>
 					</button>
 					<a href = "Carrito.html">
-                        <i class="icon icon-cart fas fa-shopping-cart"></i>
+                        <i class="icon icon-cart_2 fas fa-shopping-cart"></i>
                     </a>
 				</div>
 		</form>
@@ -42,21 +51,31 @@
 	</div>
 	<main class="content">
 		<center>
-			<section class = "registrarse">
+			<section class = "inicio_sesion">
 				
-				<h1 class="encabezado_box">Registrarse</h1>
-				<input type="text" class="info" placeholder="Nombre">
-				<input type="text" class="info" placeholder="Correo electrónico">
-				<input type="password" class="info" placeholder="Contraseña">
-				<input type="password" class="info" placeholder="Confirmar contraseña">
+				<h1 class="encabezado_box">Iniciar sesión</h1>
 
-				<div class = "inicio">
-				<a href="Index.html" class="enlace_btn">Registrarse</a>					
-				</div>
-
-				<p>Ya tienes una cuenta? <a class = "enlace" href="Login.html">Iniciar Sesión</a></p>
+				<?php 
+					if(isset($usuario)){
+						 if($usuario == 0){
+						 	echo "<p class='enlace'>Datos incorrectos</p>";
+							session_destroy();
+					}
+					}else{
+						echo "<br> <br>";
+					}
+	 			?>
+				<form action="IniciodeSesion/IniciarSesion.php" method="POST">
+					<input type="text" name="usuario" class="info" placeholder="Correo electrónico">
+					<input type="password" name="contrasena" class="info" placeholder="Contraseña">
+					<br><br>
+					<button class = "inicio" type="submit">
+						<div class = "enlace_btn"> Iniciar Sesión </div>
+					</button>
+				</form>
 				
-
+				<p class="enlace">¿Olvidaste tu contraseña?</p>
+				<a class = "enlace" href="Registro.php">¿No tienes una cuenta? Registrarse</a>
 
 			</section>
 		</center>
