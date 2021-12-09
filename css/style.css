@@ -56,7 +56,7 @@ body{
     height: 11%;
     margin-left: -1px;
     margin-top:  22px;
-    padding:  .4rem .4rem;
+    padding:  .7rem .3rem;
     text-align: center;
 }
 
@@ -66,6 +66,8 @@ body{
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     min-width: 25px;
+    max-width: 50px;
+    height: 30px;
 }
 
 .btn-search:active{

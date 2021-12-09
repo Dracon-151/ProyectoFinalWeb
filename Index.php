@@ -20,6 +20,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style2.css">
+	<link rel="stylesheet" href="css/style.css">
 
 	<?php 
 		session_start();	
@@ -30,11 +31,10 @@
 		}		
 	?>
 
-	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-		<a class="logo__index" href="Index.html">a</a>
+	<a class="logo__index" href="Index.php">a</a>
 
 	<header class ="header">
 		<form action ="">
@@ -64,14 +64,14 @@
 
 	    <div class="collapse navbar-collapse" id="bs-nav">
 	      <ul class="nav navbar-nav">
-	        <li><a href="Productos.html">PlayStation</a></li>
-	        <li><a href="Productos.html">Xbox</a></li>
-	        <li><a href="Productos.html">Nintendo</a></li>
-	        <li><a href="Productos.html">PC</a></li>
-	        <li><a href="Productos.html">VR</a></li>
-	        <li><a href="Productos.html">Ofertas</a></li>
-	        <li><a href="Productos.html">Contáctanos</a></li>
-	        <li><a href="Carrito.html"><i class="icon icon-cart fas fa-shopping-cart"></i></a></li>
+	        <li><a href="Productos.php">PlayStation</a></li>
+	        <li><a href="Productos.php">Xbox</a></li>
+	        <li><a href="Productos.php">Nintendo</a></li>
+	        <li><a href="Productos.php">PC</a></li>
+	        <li><a href="Productos.php">VR</a></li>
+	        <li><a href="Productos.php">Ofertas</a></li>
+	        <li><a href="Productos.php">Contáctanos</a></li>
+	        <li><a href="Carrito.php"><i class="icon icon-cart fas fa-shopping-cart"></i></a></li>
 	      </ul>
 	    </div>
 	  </div>
@@ -203,7 +203,5 @@
 	    }
     }
     ?>
-
-    
 </body>
 </html>
