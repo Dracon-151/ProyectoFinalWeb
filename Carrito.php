@@ -207,7 +207,7 @@
 
     	    	$query = "DELETE FROM carrito WHERE idProducto = '$id'AND idUsuario = '$usuario'";
 				$consulta = mysqli_query($conexion, $query);
-				$resultado = mysqli_fetch_array($consulta);
+				
 
 				echo "<script>alert('¡Se ha eliminado el producto del carrito!');</script>";
 
