@@ -35,7 +35,7 @@ body{
     font-size:  1rem;
     font-weight: 400;
     line-height: 1;
-    padding:  .3rem .3rem;
+    padding:  .8rem .3rem;
     width:  40%;
     height: 100%;
     margin-left: 30px;
@@ -65,6 +65,7 @@ body{
     border-color: none;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    min-width: 25px;
 }
 
 .btn-search:active{
@@ -82,9 +83,11 @@ body{
     color:  #FFFFFF;
     font-family: Roboto;
     font-size: 1em;
-    margin-left: 10%;
-    margin-top: 1.65em;
+    margin-left: 20%;
+    margin-right: 15px;
+    margin-top: 2em;
     text-decoration: none;
+    min-width: 80px;
 }
 
 .logo__index{
@@ -100,8 +103,6 @@ body{
     border:  none;
     cursor:  pointer;
     font-size:  2rem;
-    background-color: #569950;
-    position: absolute;
     right: 40px;
     top: 20px;
 }
@@ -222,33 +223,16 @@ Inserte aqui sus estilos*/
 	margin: 4px 4.5px;
 	text-align: center;
 	width: 7.5em;
-	background: #83BA7E;
+	background-color: #83BA7E;
 }
-
 
 .enlace_btn{
 	color: #FFFFFF;
-	font-size: 10em;
-	padding:  20px;
-	text-decoration: none;
-}
-
-.enlace_btn_rojo{
-	color: red;
-	font-size: 10em;
-	padding:  20px;
 	text-decoration: none;
 }
 
 .enlace{
 	color: #3E9AEE;
-	text-decoration: none;
-}
-
-.text_white{
-	color:  #FFFFFF;
-	font-size: 10em;
-	padding:  20px;
 	text-decoration: none;
 }
 
@@ -430,40 +414,17 @@ table.product__price{
 	font-size:  200%;
 }
 
-.button-red{
-	background: #dc3545 ;
-	background-color: #EDEDED;
-}
-
-.button-general{
-	background:  #EDEDED;
-	color: #darkred;
-	display:  inline-block;
-	font-size: 1.25em;
-	margin:  20px;
-	text-decoration:  none;
-}
-
-.button span{
-	margin-right: 10px;
-}
-
 .icon-delete{
 	color:  #dc3545;
 	background-color: #EDEDED;
 }
 
-.icon-delete:active{
-    background-color:  blue;
-}
-
-.icon-delete:hover{
+.icon-delete: hover{
 	/*hover cuando estoy sobre el elemento, no presionado
 	*/
-	box-shadow: 0px 0px 0px;
-	padding-top: 7px;
 	color: #e52436;
 }
+
 
 /*lista*/
 .list{
@@ -586,14 +547,97 @@ table.product__price{
 	}
 }
 
-.carrito{
-	border-radius: 4px;
-	border-width: 0em;
-	padding: 0.5em;
-	margin: 4px 4.5px;
-	text-align: center;
-	width: 7.5em;
-	background-color: #83BA7E;
+// Generate series of `.navbar-expand-*` responsive classes for configuring
+// where your navbar collapses.
+.navbar-expand {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    // stylelint-disable-next-line scss/selector-no-union-class-name
+    &#{$infix} {
+      @include media-breakpoint-up($next) {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+
+        .navbar-nav {
+          flex-direction: row;
+
+          .dropdown-menu {
+            position: absolute;
+          }
+
+          .nav-link {
+            padding-right: $navbar-nav-link-padding-x;
+            padding-left: $navbar-nav-link-padding-x;
+          }
+        }
+
+        .navbar-nav-scroll {
+          overflow: visible;
+        }
+
+        .navbar-collapse {
+          display: flex !important; // stylelint-disable-line declaration-no-important
+          flex-basis: auto;
+        }
+
+        .navbar-toggler {
+          display: none;
+        }
+
+        .offcanvas-header {
+          display: none;
+        }
+
+        .offcanvas {
+          position: inherit;
+          bottom: 0;
+          z-index: 1000;
+          flex-grow: 1;
+          visibility: visible !important; // stylelint-disable-line declaration-no-important
+          background-color: transparent;
+          border-right: 0;
+          border-left: 0;
+          @include transition(none);
+          transform: none;
+        }
+        .offcanvas-top,
+        .offcanvas-bottom {
+          height: auto;
+          border-top: 0;
+          border-bottom: 0;
+        }
+
+        .offcanvas-body {
+          display: flex;
+          flex-grow: 0;
+          padding: 0;
+          overflow-y: visible;
+        }
+      }
+    }
+  }
 }
 
-/*Estilos 7 de diciembre:  Index y botones*/
+.navbar.navbar-inverse .navbar-nav > li > a:hover {
+  color: blue;
+}
+
+.navbar.navbar-inverse .navbar-nav > li > a {
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .navbar.navbar-inverse .navbar-nav {
+    display: table;
+    width: 100%;
+  }
+  .navbar.navbar-inverse .navbar-nav > li {
+    display: table-cell;
+    float: none;
+  }
+  .navbar.navbar-inverse .navbar-nav > li > a {
+    text-align: center;
+  }
+}
