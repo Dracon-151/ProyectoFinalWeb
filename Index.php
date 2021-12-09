@@ -78,7 +78,7 @@
 	</nav>
 
 	<main class="content">
-		<img src="img/publicidad.png" class ="img_publicidad" width="1366" height="182" />
+		<img src="img/publicidad.png" class ="img_publicidad" />
 
 		<div>
 			<h1 class="encabezado_index">LO MÁS POPULAR</h1>
