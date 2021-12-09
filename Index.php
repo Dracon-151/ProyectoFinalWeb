@@ -70,7 +70,7 @@
 	        <li><a href="Productos.php">PC</a></li>
 	        <li><a href="Productos.php">VR</a></li>
 	        <li><a href="Productos.php">Ofertas</a></li>
-	        <li><a href="Productos.php">Contáctanos</a></li>
+	        <li><a href="EnviarComentarios.php">Contáctanos</a></li>
 	        <li><a href="Carrito.php"><i class="icon icon-cart fas fa-shopping-cart"></i></a></li>
 	      </ul>
 	    </div>
