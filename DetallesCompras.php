@@ -108,7 +108,7 @@
 
 		    		$numProductos = $resultado['existe'];
 		    		
-					$query = "SELECT * FROM venta JOIN producto ON venta.idProducto = producto.idProducto WHERE idUsuario = '$usuario' ORDER BY 'fecha' DESC";						
+					$query = "SELECT * FROM venta JOIN producto ON venta.idProducto = producto.idProducto WHERE idUsuario = '$usuario' ";						
 					$consulta = mysqli_query($conexion, $query);
 					$resultado = mysqli_fetch_all($consulta);
 
@@ -116,7 +116,7 @@
 
 			            $cantidadProducto = $arreglo[2];
 		    			$nombreProducto = $arreglo[6];
-		    			$total = $arreglo[8];
+		    			$total = $arreglo[3];
 		    			$rutaFoto = $arreglo[9];
 		    			$fecha = $arreglo[4];
 
