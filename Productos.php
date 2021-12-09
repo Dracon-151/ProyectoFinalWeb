@@ -32,6 +32,7 @@
 		}		
 	?>
 </head>
+
 <body>
 	<a class="logo__index" href="Index.php">a</a>
 
