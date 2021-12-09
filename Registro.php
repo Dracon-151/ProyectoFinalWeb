@@ -76,7 +76,7 @@
 	        <li><a href="Productos.php">PC</a></li>
 	        <li><a href="Productos.php">VR</a></li>
 	        <li><a href="Productos.php">Ofertas</a></li>
-	        <li><a href="EnviarComentarios.php">Contáctanos</a></li>
+	        <li><a href="DetallesCompras.php">Compras anteriores</a></li>
 	        <li><a href="Carrito.php"><i class="icon icon-cart fas fa-shopping-cart"></i></a></li>
 	      </ul>
 	    </div>
@@ -118,7 +118,7 @@
 					<br>
 
 					<button class = "inicio" type="submit">
-						Registrarse
+						<div class = "enlace_btn"> Registrarse </div>
 					</button>
 				</form>
 

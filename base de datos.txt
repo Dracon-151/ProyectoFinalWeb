@@ -1,13 +1,18 @@
 CREATE DATABASE estim;
 USE estim;
+
 CREATE TABLE producto(idProducto INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, 
 descripcion VARCHAR(100) NOT NULL, precio FLOAT NOT NULL, rutaFoto VARCHAR(100) NOT NULL);
 
 CREATE TABLE usuario(idUsuario INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, 
 email VARCHAR(100) UNIQUE NOT NULL, contrasena VARCHAR(100) NOT NULL);
 
-CREATE TABLE ventas(idVenta INT AUTO_INCREMENT PRIMARY KEY, idUsuario INT NOT NULL, 
-idProducto INT NOT NULL, cantidad INT NOT NULL, fecha DATETIME NOT NULL, FOREIGN KEY(idUsuario) REFERENCES usuario(idUsuario) 
+CREATE TABLE venta(idUsuario INT NOT NULL, 
+idProducto INT NOT NULL, cantidad INT NOT NULL, total FLOAT NOT NULL, fecha DATETIME NOT NULL, FOREIGN KEY(idUsuario) REFERENCES usuario(idUsuario) 
+ON DELETE NO ACTION ON UPDATE CASCADE, FOREIGN KEY(idProducto) REFERENCES producto(idProducto) ON DELETE NO ACTION ON UPDATE CASCADE);
+
+CREATE TABLE carrito(idVenta INT AUTO_INCREMENT PRIMARY KEY, idUsuario INT NOT NULL, 
+idProducto INT NOT NULL, cantidad INT NOT NULL, FOREIGN KEY(idUsuario) REFERENCES usuario(idUsuario) 
 ON DELETE NO ACTION ON UPDATE CASCADE, FOREIGN KEY(idProducto) REFERENCES producto(idProducto) ON DELETE NO ACTION ON UPDATE CASCADE);
 
 INSERT INTO producto VALUES(0, "XBOX 360", "-250GB -2 Controles -1 Juego", 3499, '"img/xbox360.png"');
@@ -18,7 +23,7 @@ INSERT INTO producto VALUES(0, "Juegosfera", "-100TB -Es esférica -Pi Juegos in
 
 INSERT INTO producto VALUES(0, "Mario Kart 8 Deluxe", "-Para Nintendo Switch", 1099, '"img/control game cube.png"');
 INSERT INTO producto VALUES(0, "Mario Oddyssey", "-Para Nintendo Switch", 1199, '"img/control wii pro.png"');
-INSERT INTO producto VALUES(0, "Arms", "-Para Nintendo Switch", 1049, '"img/control"');
+INSERT INTO producto VALUES(0, "Arms", "-Para Nintendo Switch", 1049, '"img/control.png"');
 INSERT INTO producto VALUES(0, "Rabbids kingdom battle", "-Para Nintendo Switch", 1049, '"img/controles wii.png"');
 INSERT INTO producto VALUES(0, "Animal crossing new horizons", "-Para Nintendo Switch", 1399, '"img/motion plus.png"');
 INSERT INTO producto VALUES(0, "Pokémon Lets go Eevee", "-Para Nintendo Switch", 1599, '"img/pokemon.png"');
@@ -26,3 +31,20 @@ INSERT INTO producto VALUES(0, "Super Smash Bros", "-Para Nintendo Switch", 1799
 INSERT INTO producto VALUES(0, "Zelda Breath of the Wild", "-Para Nintendo Switch", 1599, '"img/zelda.png"');
 INSERT INTO producto VALUES(0, "Astral Chain", "-Para Nintendo Switch", 1499, '"img/astralchain.png"');
 INSERT INTO producto VALUES(0, "Assassins creed III", "-Para Nintendo Switch", 1499, '"img/assassins.png"');
+
+DELIMITER $$
+
+CREATE PROCEDURE comprar(IN idP int, IN idU int)
+
+BEGIN 
+
+INSERT INTO venta VALUES((SELECT idUsuario FROM carrito WHERE idProducto = idP AND idUsuario = idU), 
+(SELECT idProducto FROM carrito WHERE idProducto = idP AND idUsuario = idU), 
+(SELECT cantidad FROM carrito WHERE idProducto = idP AND idUsuario = idU), (SELECT cantidad FROM carrito WHERE idProducto = idP AND idUsuario = idU) * 
+(SELECT precio FROM producto WHERE idProducto = idP), NOW());
+
+DELETE FROM carrito WHERE idProducto = idP AND idUsuario = idU;
+
+END $$
+
+DELIMITER ;

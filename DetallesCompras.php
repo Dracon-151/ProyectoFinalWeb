@@ -8,7 +8,7 @@
 
 	<title>Estim</title>
 
-	<script src="bootstrap/js/bootstrap.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
 
 	<!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -21,9 +21,19 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style2.css">
-	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
+	<?php 
+		session_start();	
+		if(isset($_SESSION['idSesion'])){
+			$usuario = $_SESSION['idSesion'];
+		}else{
+			session_destroy();
+		}		
+	?>
+	
 </head>
+
 <body>
 	<a class="logo__index" href="Index.php">a</a>
 
@@ -35,8 +45,15 @@
 				<button class = "btn btn-search" id="btnSearch">
 					<i class="fas fa-search"></i>
 				</button>
-				<a href = "Login.php" class = "login">
-			    Iniciar sesión</a>
+				<?php 
+					if(isset($usuario)){
+						echo "<a href = 'IniciodeSesion/CerrarSesion.php' class = 'login'>
+			    		Cerrar sesión</a>";	
+					}else{
+						echo "<a href = 'Login.php' class = 'login'>
+			    		Iniciar sesión</a>";	
+			    	}		
+				?>
 			</div>
 		</form>
 	</header>
@@ -61,7 +78,7 @@
 	        <li><a href="Productos.php">PC</a></li>
 	        <li><a href="Productos.php">VR</a></li>
 	        <li><a href="Productos.php">Ofertas</a></li>
-	        <li><a href="EnviarComentarios.php">Contáctanos</a></li>
+	        <li><a href="DetallesCompras.php">Compras anteriores</a></li>
 	        <li><a href="Carrito.php"><i class="icon icon-cart fas fa-shopping-cart"></i></a></li>
 	      </ul>
 	    </div>
@@ -69,28 +86,77 @@
 	</nav>
 
 	<main class="container">
-
-		<h2 class="encabezado_seccion">Enviar comentarios</h2>
+		<h2 class="encabezado_seccion">Historial de compras</h2>
 		<center>
-			<section class = "enviar_comentarios">
-				<br>
-				<h3 class="campo_box">Nombre    completo: </h3>
-				<input type="text" class="info">
-				<br>
-				<h3 class="campo_box">Correo electrónico: </h3>
-				<input type="text" class="info">
-				<h3 class="campo_box">Comentarios: </h3>
+			<section class = "carrito_compras">
 				
-				<center>
-					<textarea class="info_comentarios"></textarea>
-					<div class = "inicio">
-					<a href="Index.html" class="enlace_btn">Enviar</a>					
-					</div>	
-				</center>
+		    	<table class="table">
 
+				<?php
+		    	
+				require 'IniciodeSesion/Log.php';
+
+        		if(isset($_SESSION['idSesion'])){$usuario = $_SESSION['idSesion'];}
+        		else{ $usuario = -1;}
+        		$total = 0;
+
+        		$query = "SELECT COUNT(*) as existe FROM venta WHERE idUsuario = '$usuario'";
+				$consulta = mysqli_query($conexion, $query);
+				$resultado = mysqli_fetch_array($consulta);
+
+		    	if($resultado['existe'] > 0 && $usuario > 0){
+
+		    		$numProductos = $resultado['existe'];
+		    		
+					$query = "SELECT * FROM venta JOIN producto ON venta.idProducto = producto.idProducto WHERE idUsuario = '$usuario' ORDER BY 'fecha' DESC";						
+					$consulta = mysqli_query($conexion, $query);
+					$resultado = mysqli_fetch_all($consulta);
+
+			        foreach($resultado as $indice => $arreglo){
+
+			            $cantidadProducto = $arreglo[2];
+		    			$nombreProducto = $arreglo[6];
+		    			$total = $arreglo[8];
+		    			$rutaFoto = $arreglo[9];
+		    			$fecha = $arreglo[4];
+
+		    			?>
+								<tr><td><img src=
+								<?php 
+									echo $rutaFoto;
+								?> class ="img_producto"></td>
+								<td><h3> 
+								<?php 
+									echo $nombreProducto;
+								?>
+								</h3></td>
+								<td><h3 class="centrar color">Cantidad<p class="centrar">
+								<?php 
+									echo $cantidadProducto;
+								?> </p></h3></td>
+								<td><h3 class="campo_cantidad"> 
+								$<?php 
+									echo $total;
+								?></h3></td>
+								<td><h3 class="centrar color">Fecha<p class="centrar">
+								<?php 
+									echo $fecha;
+								?> </p></h3></td>
+		                   	 	</tr>
+						<?php
+			        }
+			    }else{
+			    ?>
+			    	<center>
+			    		<h2> No se han realizado compras aún</h2>
+			    	</center>
+				<?php
+			    }
+		    	?>
 			</section>
 		</center>
 	</main>
+
 	<script src="https://code.jquery.com/jquery-3.6.0.js"
   	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   	crossorigin="anonymous"></script>
@@ -101,5 +167,6 @@
   	crossorigin="anonymous"></script>
 
 	<script src="./js/scripts.js"></script>
+	        
 </body>
 </html>
