@@ -10,7 +10,7 @@ if($_POST['contrasena'] == $_POST['contrasena2'] AND $_POST['contrasena'] != "")
 	 $usuario = $_POST['usuario'];
 	 $contrasena = $_POST['contrasena'];
 	 
-	 $query = "SELECT COUNT(*) as usuariosValidos FROM usuario WHERE email = '$usuario'";
+	$query = "SELECT COUNT(*) as usuariosValidos FROM usuario WHERE email = '$usuario'";
 
 	$consulta = mysqli_query($conexion, $query);
 
@@ -37,8 +37,15 @@ if($_POST['contrasena'] == $_POST['contrasena2'] AND $_POST['contrasena'] != "")
 		$_SESSION['idSesion'] = -2;
 		header("location: ../Registro.php");
 	}
-}else{
+}
+else{
+	if($_POST['contrasena'] != $_POST['contrasena2']){
 		$_SESSION['idSesion'] = -1;
 		header("location: ../Registro.php");
+	}
+	else{
+		$_SESSION['idSesion'] = 0;
+		header("location: ../Registro.php");
+	}
 }
 ?>

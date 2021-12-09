@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang = "en">
 <head>
 	<meta charset="UTF-8" />
@@ -45,8 +44,15 @@
 				<button class = "btn btn-search" id="btnSearch">
 					<i class="fas fa-search"></i>
 				</button>
-				<a href = "Login.php" class = "login">
-			    Iniciar sesión</a>
+				<?php 
+					if(isset($usuario)){
+						echo "<a href = 'IniciodeSesion/CerrarSesion.php' class = 'login'>
+			    		Cerrar sesión</a>";	
+					}else{
+						echo "<a href = 'Login.php' class = 'login'>
+			    		Iniciar sesión</a>";	
+			    	}		
+				?>
 			</div>
 		</form>
 	</header>
@@ -71,7 +77,7 @@
 	        <li><a href="Productos.php">PC</a></li>
 	        <li><a href="Productos.php">VR</a></li>
 	        <li><a href="Productos.php">Ofertas</a></li>
-	        <li><a href="Productos.php">Contáctanos</a></li>
+	        <li><a href="EnviarComentarios.php">Contáctanos</a></li>
 	        <li><a href="Carrito.php"><i class="icon icon-cart fas fa-shopping-cart"></i></a></li>
 	      </ul>
 	    </div>
@@ -82,52 +88,38 @@
 		<h2 class="encabezado_seccion">Carrito de compras</h2>
 		<center>
 			<section class = "carrito_compras">
+				
+		    	<table class="table">
+
 				<?php
-		    	//Conexión a la bd
-		    	$host = "localhost";
-		 		$usuario = "root";
-		 		$contrasena = "";
-		 		$bd = "estim";
-		 		$conexion = mysqli_connect($host, $usuario, $contrasena, $bd);
-		 		$total = 0;
+		    	
+				require 'IniciodeSesion/Log.php';
 
-		    	if(isset($_SESSION["carrito"])){
-			        foreach($_SESSION["carrito"] as $indice =>$arreglo){
-			            $idProducto = $indice;
-			            $cantidadProducto = $_SESSION["carrito"][$indice]["cantidad"];
-			            //getNombre
-		    			$query = "SELECT nombre FROM producto WHERE idProducto = '$idProducto'";
-		    			$consulta = mysqli_query($conexion, $query);
-		    			$resultado = mysqli_fetch_array($consulta);
-		    			$nombreProducto = $resultado[0];
-		    			//getDescripción
-		    			$query = "SELECT descripcion FROM producto WHERE idProducto = '$idProducto'";
-		    			$consulta = mysqli_query($conexion, $query);
-		    			$resultado = mysqli_fetch_array($consulta);
-		    			$descripcion = $resultado[0];
+        		if(isset($usuario)){$usuario = $_SESSION['idSesion'];}
+        		$total = 0;
 
-		    			//getPrecio
-		    			$query = "SELECT precio FROM producto WHERE idProducto = '$idProducto'";
-		    			$consulta = mysqli_query($conexion, $query);
-		    			$resultado = mysqli_fetch_array($consulta);
-		    			$precio = $resultado[0];
+        		$query = "SELECT COUNT(*) as existe FROM carrito WHERE idUsuario = '$usuario'";
+				$consulta = mysqli_query($conexion, $query);
+				$resultado = mysqli_fetch_array($consulta);
 
-		    			//getRutaFoto
-		    			$query = "SELECT rutaFoto FROM producto WHERE idProducto = '$idProducto'";
-		    			$consulta = mysqli_query($conexion, $query);
-		    			$resultado = mysqli_fetch_array($consulta);
-		    			$rutaFoto = $resultado[0];
+		    	if($resultado['existe'] > 0){
+
+		    		$numProductos = $resultado['existe'];
+		    		
+		    		$query = "SELECT * FROM carrito JOIN producto ON carrito.idProducto = producto.idProducto WHERE idUsuario = '$usuario' ";
+						$consulta = mysqli_query($conexion, $query);
+						$resultado = mysqli_fetch_all($consulta);
+
+			        foreach($resultado as $indice => $arreglo){
+
+			            $idProducto = $arreglo[2];
+			            $cantidadProducto = $arreglo[3];
+		    			$nombreProducto = $arreglo[5];
+		    			$descripcion = $arreglo[6];
+		    			$precio = $arreglo[7];
+		    			$rutaFoto = $arreglo[8];
 		    			
-
-		    			/*echo "<hr>ID: " . $idProducto . "<br>";
-		    			echo "Nombre: " . $nombreProducto . "<br>";
-		    			echo "Cantidad: " . $cantidadProducto . "<br>";
-		    			echo "Descripcion: ". $descripcion . "<br>";
-		    			echo "Precio: $". $precio . "<br>";
-		    			echo "Ruta de Foto: ". $rutaFoto . "<br>";
-		    			*/
 		    			?>
-		    			<table class="table">
 								<tr><td><img src=
 								<?php 
 									echo $rutaFoto;
@@ -155,11 +147,11 @@
 										<div class = "enlace_btn_rojo"> <i class="fas fa-trash-alt"></i> </div>
 									</button>
 		                   	 	</form>
-								</td>
-						</table>
+								</td></tr>
 						<?php
 			        }
 			        ?>
+			    	</table>
 			        <ul>
 						<h3 class="campo_box_3"> Envío: </h3>
 						<h3 class="campo_cantidad_2"> Gratis </h3>
@@ -199,34 +191,25 @@
 
 	<script src="./js/scripts.js"></script>
 
-	<?php
+		<?php
     if(isset($_REQUEST["btnEliminar"])){
         if(isset($_SESSION['idSesion'])){
-        	$id = $_REQUEST["id"];
-        	$empty = true;
+			$id = $_REQUEST["id"];
 
-		    if(isset($_SESSION["carrito"])){
-		        foreach($_SESSION["carrito"] as $indice =>$arreglo){
-		            if ($indice == $id){
-		            	echo "existe";
-		            	unset($_SESSION["carrito"][$indice]);
-		            }
-		        }
-		        foreach($_SESSION["carrito"] as $indice =>$arreglo){
-		            if ($indice > 0){
-		            	$empty = false;
-		            }
-		        }
-		        if ($empty == true){
-		        	unset($_SESSION["carrito"]);
-		        }
-		    }
-		  	/*var_dump($_SESSION["carrito"]); */
+        	require 'IniciodeSesion/Log.php';
+
+        	$usuario = $_SESSION['idSesion'];
+
+
+        	$query = "DELETE FROM carrito WHERE idProducto = '$id'AND idUsuario = '$usuario'";
+			$consulta = mysqli_query($conexion, $query);
+
+			echo "<script>alert('¡Se ha eliminado el producto del carrito!');</script>";
+
+	    }
+	}
 		  	?>
 	        <script>window.location.replace("http://localhost/pruebas/Carrito.php");</script>
-	        <?php
-	    }
-    }
-    ?>
+	        
 </body>
 </html>

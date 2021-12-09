@@ -44,8 +44,15 @@
 				<button class = "btn btn-search" id="btnSearch">
 					<i class="fas fa-search"></i>
 				</button>
-				<a href = "Login.php" class = "login">
-			    Iniciar sesión</a>
+				<?php 
+					if(isset($usuario)){
+						echo "<a href = 'IniciodeSesion/CerrarSesion.php' class = 'login'>
+			    		Cerrar sesión</a>";	
+					}else{
+						echo "<a href = 'Login.php' class = 'login'>
+			    		Iniciar sesión</a>";	
+			    	}		
+				?>
 			</div>
 		</form>
 	</header>
@@ -86,7 +93,7 @@
 				<?php 
 					if(isset($usuario)){
 						 if($usuario == 0){
-						 	echo "<p class='enlace'>Datos incorrectos</p>";
+						 	echo "<p class='enlace'>Datos no válidos</p>";
 							session_destroy();
 					}
 					}else{

@@ -44,8 +44,15 @@
 				<button class = "btn btn-search" id="btnSearch">
 					<i class="fas fa-search"></i>
 				</button>
-				<a href = "Login.php" class = "login">
-			    Iniciar sesión</a>
+				<?php 
+					if(isset($usuario)){
+						echo "<a href = 'IniciodeSesion/CerrarSesion.php' class = 'login'>
+			    		Cerrar sesión</a>";	
+					}else{
+						echo "<a href = 'Login.php' class = 'login'>
+			    		Iniciar sesión</a>";	
+			    	}		
+				?>
 			</div>
 		</form>
 	</header>
@@ -70,7 +77,7 @@
 	        <li><a href="Productos.php">PC</a></li>
 	        <li><a href="Productos.php">VR</a></li>
 	        <li><a href="Productos.php">Ofertas</a></li>
-	        <li><a href="Productos.php">Contáctanos</a></li>
+	        <li><a href="EnviarComentarios.php">Contáctanos</a></li>
 	        <li><a href="Carrito.php"><i class="icon icon-cart fas fa-shopping-cart"></i></a></li>
 	      </ul>
 	    </div>
@@ -90,7 +97,7 @@
                        	<span class="product__price">$1,099.00</span>
                         <h3 class="product__title">Mario Kart 8 Deluxe<br>-Para Nintendo Switch</h3>
                     </div>
-                    <form action="Index.php" method="POST">
+					<form action="Productos.php" method="POST">
 	                        <input type="hidden" name="id" value="6">
 	                        <button class = "inicio" type="submit" value="Agregar" name ="btnAgregar">
 								<div class = "enlace_btn"> <i class="fas fa-cart-plus"></i> </div>
@@ -106,7 +113,7 @@
 						<span class="product__price">$1,199.00</span>
 						<h3 class="product__title">Mario Oddyssey<br>-Para Nintendo Switch</h3>
 					</div>
-					<form action="Index.php" method="POST">
+					<form action="Productos.php" method="POST">
 	                        <input type="hidden" name="id" value="7">
 	                        <button class = "inicio" type="submit" value="Agregar" name ="btnAgregar">
 								<div class = "enlace_btn"> <i class="fas fa-cart-plus"></i> </div>
@@ -121,7 +128,7 @@
 						<span class="product__price">$1,049.00</span>
 						<h3 class="product__title">Arms<br>-Para Nintendo Switch</h3>
 					</div>
-					<form action="Index.php" method="POST">
+					<form action="Productos.php" method="POST">
 	                        <input type="hidden" name="id" value="8">
 	                        <button class = "inicio" type="submit" value="Agregar" name ="btnAgregar">
 								<div class = "enlace_btn"> <i class="fas fa-cart-plus"></i> </div>
@@ -136,7 +143,7 @@
 						<span class="product__price">$1,049.00</span>
 						<h3 class="product__title">Rabbids kingdom battle<br>-Para Nintendo Switch</h3>
 					</div>
-					<form action="Index.php" method="POST">
+					<form action="Productos.php" method="POST">
 	                        <input type="hidden" name="id" value="9">
 	                        <button class = "inicio" type="submit" value="Agregar" name ="btnAgregar">
 								<div class = "enlace_btn"> <i class="fas fa-cart-plus"></i> </div>
@@ -151,7 +158,7 @@
 						<span class="product__price">$1,399.00</span>
 						<h3 class="product__title">Animal crossing new horizons<br>-Para Nintendo Switch</h3>
 					</div>
-					<form action="Index.php" method="POST">
+					<form action="Productos.php" method="POST">
 	                        <input type="hidden" name="id" value="10">
 	                        <button class = "inicio" type="submit" value="Agregar" name ="btnAgregar">
 								<div class = "enlace_btn"> <i class="fas fa-cart-plus"></i> </div>
@@ -170,7 +177,7 @@
 						<span class="product__price">$1,599.00</span>
 						<h3 class="product__title">Pokémon Lets go Eevee<br>-Para Nintendo Switch</h3>
 					</div>
-					<form action="Index.php" method="POST">
+					<form action="Productos.php" method="POST">
 	                        <input type="hidden" name="id" value="11">
 	                        <button class = "inicio" type="submit" value="Agregar" name ="btnAgregar">
 								<div class = "enlace_btn"> <i class="fas fa-cart-plus"></i> </div>
@@ -186,7 +193,7 @@
 						<span class="product__price">$1,799.00</span>
 						<h3 class="product__title">Super Smash Bros<br>-Para Nintendo Switch</h3>
 					</div>
-					<form action="Index.php" method="POST">
+					<form action="Productos.php" method="POST">
 	                        <input type="hidden" name="id" value="12">
 	                        <button class = "inicio" type="submit" value="Agregar" name ="btnAgregar">
 								<div class = "enlace_btn"> <i class="fas fa-cart-plus"></i> </div>
@@ -202,7 +209,7 @@
 						<span class="product__price">$1,599.00</span>
 						<h3 class="product__title">Zelda Breath of the Wild <br>-Para Nintendo Switch</h3>
 					</div>
-					<form action="Index.php" method="POST">
+					<form action="Productos.php" method="POST">
 	                        <input type="hidden" name="id" value="13">
 	                        <button class = "inicio" type="submit" value="Agregar" name ="btnAgregar">
 								<div class = "enlace_btn"> <i class="fas fa-cart-plus"></i> </div>
@@ -218,7 +225,7 @@
 						<span class="product__price">$1,499.00</span>
 						<h3 class="product__title">Astral Chain<br>-Para Nintendo Switch</h3>
 					</div>
-					<form action="Index.php" method="POST">
+					<form action="Productos.php" method="POST">
 	                        <input type="hidden" name="id" value="14">
 	                        <button class = "inicio" type="submit" value="Agregar" name ="btnAgregar">
 								<div class = "enlace_btn"> <i class="fas fa-cart-plus"></i> </div>
@@ -234,7 +241,7 @@
 						<span class="product__price">$1,499.00</span>
 						<h3 class="product__title">Assassins creed III<br>-Para Nintendo Switch</h3>
 					</div>
-					<form action="Index.php" method="POST">
+					<form action="Productos.php" method="POST">
 	                        <input type="hidden" name="id" value="15">
 	                        <button class = "inicio" type="submit" value="Agregar" name ="btnAgregar">
 								<div class = "enlace_btn"> <i class="fas fa-cart-plus"></i> </div>
@@ -246,6 +253,37 @@
 		</div>
 	</main>
 
+<?php
+    if(isset($_REQUEST["btnAgregar"])){
+        if(isset($_SESSION['idSesion'])){
+        	$id = $_REQUEST["id"];
+
+        	require 'IniciodeSesion/Log.php';
+
+        	$usuario = $_SESSION['idSesion'];
+
+
+        	$query = "SELECT COUNT(*) as existe FROM carrito WHERE idProducto = '$id'AND idUsuario = '$usuario'";
+			$consulta = mysqli_query($conexion, $query);
+			$resultado = mysqli_fetch_array($consulta);
+
+			if($resultado['existe'] > 0){
+				$query = "UPDATE carrito SET cantidad = cantidad + 1 WHERE idProducto = '$id'AND idUsuario = '$usuario'";
+				$subir = mysqli_query($conexion, $query);
+			}
+			else{
+				$query = "INSERT INTO carrito VALUES(0, '$usuario', '$id', 1)";
+				$subir = mysqli_query($conexion, $query);
+			}	
+
+			echo "<script>alert('¡Se ha agregado el producto al carrito!');</script>";
+
+	    }else{
+	    	echo "<script>alert('Inicia sesión para comprar');</script>";
+	    }
+    }
+    ?>
+
 	<script src="https://code.jquery.com/jquery-3.6.0.js"
   	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   	crossorigin="anonymous"></script>
@@ -256,6 +294,7 @@
   	crossorigin="anonymous"></script>
 
 	<script src="./js/scripts.js"></script>
+
 
 
 </body>

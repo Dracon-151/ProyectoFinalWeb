@@ -44,8 +44,17 @@
 				<button class = "btn btn-search" id="btnSearch">
 					<i class="fas fa-search"></i>
 				</button>
-				<a href = "Login.php" class = "login">
-			    Iniciar sesión</a>
+				
+				<?php 
+					if(isset($usuario)){
+						echo "<a href = 'IniciodeSesion/CerrarSesion.php' class = 'login'>
+			    		Cerrar sesión</a>";	
+					}else{
+						echo "<a href = 'Login.php' class = 'login'>
+			    		Iniciar sesión</a>";	
+			    	}		
+				?>
+				
 			</div>
 		</form>
 	</header>
@@ -178,26 +187,27 @@
     if(isset($_REQUEST["btnAgregar"])){
         if(isset($_SESSION['idSesion'])){
         	$id = $_REQUEST["id"];
-	        $existe = false;
 
-		    if(isset($_SESSION["carrito"])){
-		        foreach($_SESSION["carrito"] as $indice =>$arreglo){
-		            if ($indice == $id){
-		            	$_SESSION["carrito"][$id]["cantidad"] = 
-		            	$_SESSION["carrito"][$id]["cantidad"] +1;
-		            	$existe = true;
-		            }
-		        }
-		        if ($existe == false){
-		        	$_SESSION["carrito"][$id]["cantidad"] = 1;
-		        }
-		    }else{
-		        $_SESSION["carrito"][$id]["cantidad"] = 1;
-		    }
-		  	/*var_dump($_SESSION["carrito"]); */
-	        ?>
-	        <script>window.location.replace("http://localhost/pruebas/Carrito.php");</script>
-	        <?php
+        	require 'IniciodeSesion/Log.php';
+
+        	$usuario = $_SESSION['idSesion'];
+
+
+        	$query = "SELECT COUNT(*) as existe FROM carrito WHERE idProducto = '$id'AND idUsuario = '$usuario'";
+			$consulta = mysqli_query($conexion, $query);
+			$resultado = mysqli_fetch_array($consulta);
+
+			if($resultado['existe'] > 0){
+				$query = "UPDATE carrito SET cantidad = cantidad + 1 WHERE idProducto = '$id'AND idUsuario = '$usuario'";
+				$subir = mysqli_query($conexion, $query);
+			}
+			else{
+				$query = "INSERT INTO carrito VALUES(0, '$usuario', '$id', 1)";
+				$subir = mysqli_query($conexion, $query);
+			}	
+
+			echo "<script>alert('¡Se ha agregado el producto al carrito!');</script>";
+
 	    }else{
 	    	echo "<script>alert('Inicia sesión para comprar');</script>";
 	    }
