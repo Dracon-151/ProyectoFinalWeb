@@ -45,7 +45,7 @@
 				<button class = "btn btn-search" id="btnSearch">
 					<i class="fas fa-search"></i>
 				</button>
-				<a href = "Login.html" class = "login">
+				<a href = "Login.php" class = "login">
 			    Iniciar sesión</a>
 			</div>
 		</form>
