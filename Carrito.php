@@ -134,12 +134,12 @@
 								<?php 
 									echo $cantidadProducto;
 								?> </p></h3></td>
-								<td><h3 class="campo_cantidad"> 
+								<td><h3 > 
 								$<?php 
 									echo $precio* $cantidadProducto;
 									$total = $total + $precio* $cantidadProducto;
 								?></h3></td>
-								<td><form action="Carrito.php" method="POST">
+								<td><form class="trash" action="Carrito.php" method="POST">
 									<input type="hidden" name="id" value ="
 									<?php 
 										echo $idProducto;

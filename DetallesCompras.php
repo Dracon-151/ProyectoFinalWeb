@@ -137,7 +137,7 @@
 								<td><h3 class="campo_cantidad"> 
 								$<?php 
 									echo $total;
-								?></h3></td>
+								?></h3></td class="precio_detalles">
 								<td><h3 class="centrar color">Fecha<p class="centrar">
 								<?php 
 									echo $fecha;

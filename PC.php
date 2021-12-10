@@ -36,14 +36,14 @@
 
 	<header class ="header">
 		<form action ="">
-			<div class = "">
+			<div class = "barra-superior">
 				<img src="img/logo.png" class ="logo">
-				<form action ="Buscar.php" method = "POST">
+				<form action ="" method = "POST">
 					<input type = "text" id ="task" name ="busqueda">
 					<button type = "submit" name ="buscar" class = "btn btn-search" id="btnSearch">
 					<i class="fas fa-search"></i>
 					</button>
-				</form>	
+				</form>		
 				<?php 
 					if(isset($usuario)){
 						echo "<a href = 'IniciodeSesion/CerrarSesion.php' class = 'login'>

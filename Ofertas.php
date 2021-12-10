@@ -98,7 +98,7 @@
 						$claseTabla = "off ";
 						if ($i == 5){
 							$query = "SELECT * FROM producto WHERE idProducto = '1'";
-								$claseTabla = "xbox ";
+								$claseTabla = "xbox2 ";
 						}
 						$consulta = mysqli_query($conexion, $query);
 						$arreglo = mysqli_fetch_array($consulta);
