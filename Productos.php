@@ -95,7 +95,7 @@
             		<tr><td><img src="img/control game cube.png" alt="" class="product__img2"></td></tr>
                     <tr><td><div class="productdescription">
                        	<span class="product__price">$1,099.00</span>
-                        <h3 class="product__title">Mario Kart 8 Deluxe<br>-Para Nintendo Switch</h3>
+                        <h3 class="product__title">Mario Kart 8<br>-Para Nintendo Switch</h3>
                     </div>
 					<form action="Productos.php" method="POST">
 	                        <input type="hidden" name="id" value="6">
