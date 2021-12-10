@@ -21,16 +21,16 @@ INSERT INTO producto VALUES(0, "Nintendo Wii", "-128GB <br>-1 Control <br>-Wii S
 INSERT INTO producto VALUES(0, "Virtual Boy", "-1MB <br>-1 Control <br>-2 Juegos", 12499, '"img/virtual boy.png"');
 INSERT INTO producto VALUES(0, "Juegosfera", "-100TB <br>-Es esférica <br>-Pi Juegos incluidos", 1499, '"img/juegosfera.png"');
 
-INSERT INTO producto VALUES(0, "Mario Kart 8 Deluxe", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1099, '"img/mariokart8.png"');
-INSERT INTO producto VALUES(0, "Mario Oddyssey", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1199, '"img/marioodyssey.png"');
-INSERT INTO producto VALUES(0, "Arms", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1049, '"img/arms.png"');
-INSERT INTO producto VALUES(0, "Mario Rabbids", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1049, '"img/mariorabbids.png"');
-INSERT INTO producto VALUES(0, "Animal Crossing 5", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1399, '"img/animalcrossing.png"');
-INSERT INTO producto VALUES(0, "Pokémon Eeve", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1599, '"img/pokemon.png"');
-INSERT INTO producto VALUES(0, "Super Smash Bros", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1799, '"img/smash.png"');
-INSERT INTO producto VALUES(0, "Zelda Breath of the Wild", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1599, '"img/zelda.png"');
-INSERT INTO producto VALUES(0, "Astral Chain", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1499, '"img/astralchain.png"');
-INSERT INTO producto VALUES(0, "Assassins Creed III", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1499, '"img/assassins.png"');
+INSERT INTO producto VALUES(0, "Mario Kart 8 Deluxe", "-Para Nintendo Switch <br>-Multijugador <br>-Jugabilidad en línea", 1099, '"img/mariokart8.png"');
+INSERT INTO producto VALUES(0, "Mario Oddyssey", "-Para Nintendo Switch <br>-Multijugador <br>-Jugabilidad en línea", 1199, '"img/marioodyssey.png"');
+INSERT INTO producto VALUES(0, "Arms", "-Para Nintendo Switch <br>-Multijugador <br>-Jugabilidad en línea", 1049, '"img/arms.png"');
+INSERT INTO producto VALUES(0, "Mario Rabbids", "-Para Nintendo Switch <br>-Multijugador <br>-Jugabilidad en línea", 1049, '"img/mariorabbids.png"');
+INSERT INTO producto VALUES(0, "Animal Crossing 5", "-Para Nintendo Switch <br>-Multijugador <br>-Jugabilidad en línea", 1399, '"img/animalcrossing.png"');
+INSERT INTO producto VALUES(0, "Pokémon Eeve", "-Para Nintendo Switch <br>-Multijugador <br>-Jugabilidad en línea", 1599, '"img/pokemon.png"');
+INSERT INTO producto VALUES(0, "Super Smash Bros", "-Para Nintendo Switch <br>-Multijugador <br>-Jugabilidad en línea", 1799, '"img/smash.png"');
+INSERT INTO producto VALUES(0, "Zelda Breath of the Wild", "-Para Nintendo Switch <br>-Multijugador <br>-Jugabilidad en línea", 1599, '"img/zelda.png"');
+INSERT INTO producto VALUES(0, "Astral Chain", "-Para Nintendo Switch <br>-Multijugador <br>-Jugabilidad en línea", 1499, '"img/astralchain.png"');
+INSERT INTO producto VALUES(0, "Assassins Creed III", "-Para Nintendo Switch <br>-Multijugador <br>-Jugabilidad en línea", 1499, '"img/assassins.png"');
 
 INSERT INTO producto VALUES(0, "Spider-Man", "-Para Play Station 2 <br>-2 jugadores <br>-Miles Morales incluido", 799, '"img/spider-man.jpg"');
 INSERT INTO producto VALUES(0, "Spider-Man 2", "-Para Play Station 2 <br>-2 jugadores <br>-De la mejor película", 899, '"img/spider-man2.jpg"');

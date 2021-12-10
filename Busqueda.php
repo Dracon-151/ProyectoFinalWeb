@@ -90,12 +90,14 @@
 		<h1 class="encabezado_index">RESULTADOS DE LA BÚSQUEDA</h1>
 			<?php
 				require 'IniciodeSesion/Log.php';
-	    		$var = $_SESSION['busqueda'];
-	    		$query = "SELECT * FROM producto WHERE nombre LIKE '$var'";
+	    		
+	    		if(isset($_SESSION['busqueda'])){
+	    		$var = "%".$_SESSION['busqueda']."%";
+	    		$query = "SELECT * FROM producto WHERE nombre LIKE '$var' OR descripcion LIKE '$var'";
 				$consulta = mysqli_query($conexion, $query);
 				$resultado = mysqli_fetch_all($consulta);
 
-		    	if(!empty($resultado)){ 
+		    	if(!empty($resultado) && $var != "%%"){ 
 		    		?>
 					<section class="container-products">
 						<?php
@@ -137,8 +139,7 @@
 	                   	 </form>
 	                	</td></tr>
     					</table>
-    				</section>
-				<?php
+    					<?php
 				}
 				}else{
 				?>
@@ -146,7 +147,16 @@
 		    		<h2> No hay resultados que coincidan </h2>
 		    	</center>
 				<?php
+			}
+		}else{
+				?>
+				<center>
+		    		<h2> No hay resultados que coincidan </h2>
+		    	</center>
+				<?php
 			}?>
+    				</section>
+	    		
 		</div>
 	</main>
 <?php
@@ -193,7 +203,6 @@
 	<?php
 	if(isset($_GET['buscar'])){
 		$_SESSION['busqueda'] = $_GET['busqueda'];
-		var_dump($_SESSION['busqueda']);
 		?>
     	<script>window.location.replace("http://localhost/ProyectoFinalWeb/Busqueda.php");</script>
    		<?php 

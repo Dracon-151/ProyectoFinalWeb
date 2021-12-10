@@ -27,9 +27,7 @@
 		session_start();	
 		if(isset($_SESSION['idSesion'])){
 			$usuario = $_SESSION['idSesion'];
-		}else{
-			session_destroy();
-		}		
+		}	
 	?>
 	
 </head>
@@ -41,7 +39,7 @@
 		<form action ="">
 			<div class = "barra-superior">
 				<img src="img/logo.png" class ="logo">
-				<form action ="" method = "POST">
+				<form action ="Buscar.php" method = "POST">
 					<input type = "text" id ="task" name ="busqueda">
 					<button type = "submit" name ="buscar" class = "btn btn-search" id="btnSearch">
 					<i class="fas fa-search"></i>
@@ -78,8 +76,7 @@
 	        <li><a href="Xbox.php">Xbox</a></li>
 	        <li><a href="Nintendo.php">Nintendo</a></li>
 	        <li><a href="PC.php">PC</a></li>
-	        <li><a href="VR.php">VR</a></li>
-	        <li><a href="Ofertas.php">Ofertas</a></li>
+	 	    <li><a href="Ofertas.php">Ofertas</a></li>
 	        <li><a href="DetallesCompras.php">Compras anteriores</a></li>
 	        <li><a href="Carrito.php"><i class="icon icon-cart fas fa-shopping-cart"></i></a></li>
 	      </ul>
@@ -117,6 +114,7 @@
 			        foreach($resultado as $indice => $arreglo){
 
 			            $idProducto = $arreglo[2];
+			            $descripcion = $arreglo[6];
 			            $cantidadProducto = $arreglo[3];
 		    			$nombreProducto = $arreglo[5];
 		    			$precio = $arreglo[7];
@@ -208,6 +206,7 @@
 	        	$usuario = $_SESSION['idSesion'];
 
     	    	$query = "DELETE FROM carrito WHERE idProducto = '$id'AND idUsuario = '$usuario'";
+    	    	$resultado = mysqli_fetch_array($consulta);
 				$consulta = mysqli_query($conexion, $query);
 
 				echo "<script>alert('¡Se ha eliminado el producto del carrito!');</script>";
@@ -228,6 +227,8 @@
 	        	$usuario = $_SESSION['idSesion'];
 
         		$query = "SELECT idProducto FROM carrito WHERE idUsuario = '$usuario' ";
+			
+				var_dump($resultado);
 				$consulta = mysqli_query($conexion, $query);
 				$resultado = mysqli_fetch_all($consulta);
 
@@ -236,23 +237,11 @@
     	    		$query = "CALL comprar('$indice[0]','$usuario')";
     	    		$consulta = mysqli_query($conexion, $query);
 				}
-				
-				echo "<script>alert('¡Se ha realizado la compra con exito!');</script>";
-
-	    	}
-	    	?>
-	    		<script>window.location.replace("http://localhost/ProyectoFinalWeb/Carrito.php");</script>
+				?>
+				<script>window.location.replace("http://localhost/ProyectoFinalWeb/Carrito.php");</script>
 	   		<?php 
 		}
-		?>
-		<?php
-		if(isset($_GET['buscar'])){
-			$_SESSION['busqueda'] = $_GET['busqueda'];
-			var_dump($_SESSION['busqueda']);
-			?>
-	    	<script>window.location.replace("http://localhost/ProyectoFinalWeb/Busqueda.php");</script>
-	   		<?php 
-		}
-		?>  
-</body>
+	}
+		  	?>      
+	</body>
 </html>

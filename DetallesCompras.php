@@ -27,8 +27,6 @@
 		session_start();	
 		if(isset($_SESSION['idSesion'])){
 			$usuario = $_SESSION['idSesion'];
-		}else{
-			session_destroy();
 		}		
 	?>
 	
