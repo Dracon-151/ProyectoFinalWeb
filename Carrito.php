@@ -41,10 +41,12 @@
 		<form action ="">
 			<div class = "barra-superior">
 				<img src="img/logo.png" class ="logo">
-				<input type = "text" id ="task">
-				<button class = "btn btn-search" id="btnSearch">
+				<form action ="Buscar.php" method = "POST">
+					<input type = "text" id ="task" name ="busqueda">
+					<button type = "submit" name ="buscar" class = "btn btn-search" id="btnSearch">
 					<i class="fas fa-search"></i>
-				</button>
+					</button>
+				</form>	
 				<?php 
 					if(isset($usuario)){
 						echo "<a href = 'IniciodeSesion/CerrarSesion.php' class = 'login'>
@@ -72,12 +74,12 @@
 
 	    <div class="collapse navbar-collapse" id="bs-nav">
 	      <ul class="nav navbar-nav">
-	        <li><a href="Productos.php">PlayStation</a></li>
-	        <li><a href="Productos.php">Xbox</a></li>
-	        <li><a href="Productos.php">Nintendo</a></li>
-	        <li><a href="Productos.php">PC</a></li>
-	        <li><a href="Productos.php">VR</a></li>
-	        <li><a href="Productos.php">Ofertas</a></li>
+	        <li><a href="PlayStation.php">PlayStation</a></li>
+	        <li><a href="Xbox.php">Xbox</a></li>
+	        <li><a href="Nintendo.php">Nintendo</a></li>
+	        <li><a href="PC.php">PC</a></li>
+	        <li><a href="VR.php">VR</a></li>
+	        <li><a href="Ofertas.php">Ofertas</a></li>
 	        <li><a href="DetallesCompras.php">Compras anteriores</a></li>
 	        <li><a href="Carrito.php"><i class="icon icon-cart fas fa-shopping-cart"></i></a></li>
 	      </ul>

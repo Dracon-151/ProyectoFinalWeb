@@ -5,7 +5,7 @@ CREATE TABLE producto(idProducto INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(
 descripcion VARCHAR(100) NOT NULL, precio FLOAT NOT NULL, rutaFoto VARCHAR(100) NOT NULL);
 
 CREATE TABLE usuario(idUsuario INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL, 
-email VARCHAR(100) UNIQUE NOT NULL, contrasena VARCHAR(100) NOT NULL);
+email VARCHAR(100) UNIQUE NOT NULL, contrasena VARCHAR(1000) NOT NULL);
 
 CREATE TABLE venta(idUsuario INT NOT NULL, 
 idProducto INT NOT NULL, cantidad INT NOT NULL, total FLOAT NOT NULL, fecha DATETIME NOT NULL, FOREIGN KEY(idUsuario) REFERENCES usuario(idUsuario) 
@@ -15,22 +15,43 @@ CREATE TABLE carrito(idVenta INT AUTO_INCREMENT PRIMARY KEY, idUsuario INT NOT N
 idProducto INT NOT NULL, cantidad INT NOT NULL, FOREIGN KEY(idUsuario) REFERENCES usuario(idUsuario) 
 ON DELETE NO ACTION ON UPDATE CASCADE, FOREIGN KEY(idProducto) REFERENCES producto(idProducto) ON DELETE NO ACTION ON UPDATE CASCADE);
 
-INSERT INTO producto VALUES(0, "XBOX 360", "-250GB -2 Controles -1 Juego", 3499, '"img/xbox360.png"');
-INSERT INTO producto VALUES(0, "PlayStation 2", "-250GB -1 Control -2 Juegos", 3499, '"img/play2.png"');
-INSERT INTO producto VALUES(0, "Nintendo Wii", "-128GB -1 Control -Wii Sports incluido", 2499, '"img/wii.png"');
-INSERT INTO producto VALUES(0, "Virtual Boy", "-1MB -1 Control -2 Juegos", 12499, '"img/virtual boy.png"');
-INSERT INTO producto VALUES(0, "Juegosfera", "-100TB -Es esférica -Pi Juegos incluidos", 1499, '"img/juegosfera.png"');
+INSERT INTO producto VALUES(0, "XBOX 360", "-250GB <br>-2 Controles <br>-1 Juego", 3499, '"img/xbox360.png"');
+INSERT INTO producto VALUES(0, "PlayStation 2", "-250GB <br>-1 Control <br>-2 Juegos", 3499, '"img/play2.png"');
+INSERT INTO producto VALUES(0, "Nintendo Wii", "-128GB <br>-1 Control <br>-Wii Sports incluido", 2499, '"img/wii.png"');
+INSERT INTO producto VALUES(0, "Virtual Boy", "-1MB <br>-1 Control <br>-2 Juegos", 12499, '"img/virtual boy.png"');
+INSERT INTO producto VALUES(0, "Juegosfera", "-100TB <br>-Es esférica <br>-Pi Juegos incluidos", 1499, '"img/juegosfera.png"');
 
-INSERT INTO producto VALUES(0, "Mario Kart 8 Deluxe", "-Para Nintendo Switch", 1099, '"img/control game cube.png"');
-INSERT INTO producto VALUES(0, "Mario Oddyssey", "-Para Nintendo Switch", 1199, '"img/control wii pro.png"');
-INSERT INTO producto VALUES(0, "Arms", "-Para Nintendo Switch", 1049, '"img/control.png"');
-INSERT INTO producto VALUES(0, "Rabbids kingdom battle", "-Para Nintendo Switch", 1049, '"img/controles wii.png"');
-INSERT INTO producto VALUES(0, "Animal crossing new horizons", "-Para Nintendo Switch", 1399, '"img/motion plus.png"');
-INSERT INTO producto VALUES(0, "Pokémon Lets go Eevee", "-Para Nintendo Switch", 1599, '"img/pokemon.png"');
-INSERT INTO producto VALUES(0, "Super Smash Bros", "-Para Nintendo Switch", 1799, '"img/smash.png"');
-INSERT INTO producto VALUES(0, "Zelda Breath of the Wild", "-Para Nintendo Switch", 1599, '"img/zelda.png"');
-INSERT INTO producto VALUES(0, "Astral Chain", "-Para Nintendo Switch", 1499, '"img/astralchain.png"');
-INSERT INTO producto VALUES(0, "Assassins creed III", "-Para Nintendo Switch", 1499, '"img/assassins.png"');
+INSERT INTO producto VALUES(0, "Mario Kart 8 Deluxe", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1099, '"img/mariokart8.png"');
+INSERT INTO producto VALUES(0, "Mario Oddyssey", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1199, '"img/marioodyssey.png"');
+INSERT INTO producto VALUES(0, "Arms", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1049, '"img/arms.png"');
+INSERT INTO producto VALUES(0, "Mario Rabbids", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1049, '"img/mariorabbids.png"');
+INSERT INTO producto VALUES(0, "Animal Crossing 5", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1399, '"img/animalcrossing.png"');
+INSERT INTO producto VALUES(0, "Pokémon Eeve", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1599, '"img/pokemon.png"');
+INSERT INTO producto VALUES(0, "Super Smash Bros", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1799, '"img/smash.png"');
+INSERT INTO producto VALUES(0, "Zelda Breath of the Wild", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1599, '"img/zelda.png"');
+INSERT INTO producto VALUES(0, "Astral Chain", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1499, '"img/astralchain.png"');
+INSERT INTO producto VALUES(0, "Assassins Creed III", "-Para Nintendo Switch <br>-Multijuador <br>-Jugabilidad en línea", 1499, '"img/assassins.png"');
+
+INSERT INTO producto VALUES(0, "Spider-Man", "-Para Play Station 2 <br>-2 jugadores <br>-Miles Morales incluido", 799, '"img/spider-man.jpg"');
+INSERT INTO producto VALUES(0, "Spider-Man 2", "-Para Play Station 2 <br>-2 jugadores <br>-De la mejor película", 899, '"img/spider-man2.jpg"');
+INSERT INTO producto VALUES(0, "GTA San Andreas", "-Para Play Station 2 <br>-1 jugador <br>-Explora el mundo abierto", 499, '"img/gta.jpg"');
+INSERT INTO producto VALUES(0, "God of War", "-Para Play Station 2 <br>-1 jugador <br>-Más violento que nunca", 599, '"img/godofwar.jpg"');
+
+INSERT INTO producto VALUES(0, "Skyrim", "-Para XBOX 360 <br>-2 jugadores <br>-Jugabilidad en línea", 599, '"img/skyrim.jpg"');
+INSERT INTO producto VALUES(0, "Red Dead Redemption", "-Para XBOX 360 <br>-2 jugadores <br>-Jugabilidad en línea", 599, '"img/red.jpg"');
+INSERT INTO producto VALUES(0, "Dragons Dogma", "-Para XBOX 360 <br>-1 jugador <br>-Jugabilidad en línea", 599, '"img/dragons.jpg"');
+INSERT INTO producto VALUES(0, "Spider-man SD", "-Para XBOX 360 <br>-1 jugador <br>-Jugabilidad en línea", 599, '"img/spider-man-dimensions.jpg"');
+
+INSERT INTO producto VALUES(0, "The Witcher", "-Para PC <br>-Jugabilidad en línea", 499, '"img/witcher.jpg"');
+INSERT INTO producto VALUES(0, "Fallout 3", "-Para PC <br>-Jugabilidad en línea", 499, '"img/fallout.jpg"');
+INSERT INTO producto VALUES(0, "Caves of Qud", "-Para PC <br>-Jugabilidad en línea", 499, '"img/caves.jpg"');
+INSERT INTO producto VALUES(0, "New Wolrd", "-Para PC <br>-Jugabilidad en línea", 499, '"img/newworld.jpg"');
+INSERT INTO producto VALUES(0, "Going Medieval", "-Para PC <br>-Jugabilidad en línea", 499, '"img/medieval.jpeg"');
+
+INSERT INTO producto VALUES(0, "Spider-Man VR", "-Para Virtual Boy <br>-Realidad Virtual <br>-Remasterizado", 1999, '"img/spider-man-vr.jpg"');
+INSERT INTO producto VALUES(0, "Spider-Man 2 VR", "-Para Virtual Boy <br>-Realidad Virtual <br>-Remasterizado", 1999, '"img/spider-man-2-vr.jpg"');
+INSERT INTO producto VALUES(0, "GTA San Andreas VR", "-Para Virtual Boy <br>-Realidad Virtual <br>-Remasterizado", 1999, '"img/gta-vr.jpg"');
+INSERT INTO producto VALUES(0, "God of War VR", "-Para Virtual Boy <br>-Realidad Virtual <br>-Remasterizado", 1999, '"img/godofwar-vr.jpg"');
 
 DELIMITER $$
 
@@ -44,7 +65,5 @@ INSERT INTO venta VALUES((SELECT idUsuario FROM carrito WHERE idProducto = idP A
 (SELECT precio FROM producto WHERE idProducto = idP), NOW());
 
 DELETE FROM carrito WHERE idProducto = idP AND idUsuario = idU;
-
 END $$
-
 DELIMITER ;

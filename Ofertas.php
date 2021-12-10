@@ -8,7 +8,7 @@
 
 	<title>Estim</title>
 
-    <script src="bootstrap/js/bootstrap.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
 
 	<!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -21,7 +21,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style2.css">
-    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 
 	<?php 
 		session_start();	
@@ -31,7 +31,6 @@
 			session_destroy();
 		}		
 	?>
-	
 </head>
 
 <body>
@@ -46,7 +45,7 @@
 					<button type = "submit" name ="buscar" class = "btn btn-search" id="btnSearch">
 					<i class="fas fa-search"></i>
 					</button>
-				</form>	
+				</form>		
 				<?php 
 					if(isset($usuario)){
 						echo "<a href = 'IniciodeSesion/CerrarSesion.php' class = 'login'>
@@ -74,7 +73,7 @@
 
 	    <div class="collapse navbar-collapse" id="bs-nav">
 	      <ul class="nav navbar-nav">
-	        <li><a href="PlayStation.php">PlayStation</a></li>
+	         <li><a href="PlayStation.php">PlayStation</a></li>
 	        <li><a href="Xbox.php">Xbox</a></li>
 	        <li><a href="Nintendo.php">Nintendo</a></li>
 	        <li><a href="PC.php">PC</a></li>
@@ -87,77 +86,101 @@
 	  </div>
 	</nav>
 
-	<main class="container">
-		<h2 class="encabezado_seccion">Historial de compras</h2>
-		<center>
-			<section class = "carrito_compras">
-				
-		    	<table class="table">
+	<main class="content">
+		<img src="img/publicidad.png" class ="img_publicidad"/>
 
+		<div class="content2">
+			<h1 class="encabezado_index">OFERTAS</h1>
+
+			<section class="container-products">
 				<?php
-		    	
-				require 'IniciodeSesion/Log.php';
+					require 'IniciodeSesion/Log.php';
+					for ($i = 5; $i < 10; $i++){
+						$query = "SELECT * FROM producto WHERE idProducto = '$i'";
+						$claseTabla = "off ";
+						if ($i == 5){
+							$query = "SELECT * FROM producto WHERE idProducto = '1'";
+								$claseTabla = "xbox ";
+						}
+						$consulta = mysqli_query($conexion, $query);
+						$arreglo = mysqli_fetch_array($consulta);
 
-        		if(isset($_SESSION['idSesion'])){$usuario = $_SESSION['idSesion'];}
-        		else{ $usuario = -1;}
-        		$total = 0;
-
-        		$query = "SELECT COUNT(*) as existe FROM venta WHERE idUsuario = '$usuario'";
-				$consulta = mysqli_query($conexion, $query);
-				$resultado = mysqli_fetch_array($consulta);
-
-		    	if($resultado['existe'] > 0 && $usuario > 0){
-
-		    		$numProductos = $resultado['existe'];
-		    		
-					$query = "SELECT * FROM venta JOIN producto ON venta.idProducto = producto.idProducto WHERE idUsuario = '$usuario' ";						
-					$consulta = mysqli_query($conexion, $query);
-					$resultado = mysqli_fetch_all($consulta);
-
-			        foreach($resultado as $indice => $arreglo){
-
-			            $cantidadProducto = $arreglo[2];
-		    			$nombreProducto = $arreglo[6];
-		    			$total = $arreglo[3];
-		    			$rutaFoto = $arreglo[9];
-		    			$fecha = $arreglo[4];
-
-		    			?>
-								<tr><td><img src=
-								<?php 
-									echo $rutaFoto;
-								?> class ="img_producto"></td>
-								<td><h3> 
-								<?php 
-									echo $nombreProducto;
-								?>
-								</h3></td>
-								<td><h3 class="centrar color">Cantidad<p class="centrar">
-								<?php 
-									echo $cantidadProducto;
-								?> </p></h3></td>
-								<td><h3 class="campo_cantidad"> 
-								$<?php 
-									echo $total;
-								?></h3></td>
-								<td><h3 class="centrar color">Fecha<p class="centrar">
-								<?php 
-									echo $fecha;
-								?> </p></h3></td>
-		                   	 	</tr>
+						$idProducto = $arreglo[0];
+		    			$nombre = $arreglo[1];
+		    			$descripcion = $arreglo[2];
+		    			$precio = $arreglo[3];
+		    			$rutaFoto = $arreglo[4];
+						?>
+						
+						<table class= "
 						<?php
-			        }
-			    }else{
-			    ?>
-			    	<center>
-			    		<h2> No se han realizado compras aún</h2>
-			    	</center>
-				<?php
-			    }
-		    	?>
+							echo $claseTabla;
+						?> table product">
+	            		<tr><td><img src=
+	            		<?php
+	            			echo $rutaFoto;
+	            		?> class="product__img2"></td></tr>
+	                    <tr><td><div class="productdescription">
+	                       	<span class="product__price"> 
+	                       		<?php
+	            					echo "$".$precio;
+	            				?></span>
+	                        <h4 class="product__title">
+	                        	<?php
+	            					echo $nombre;
+	            				?></span><br>
+	            				<?php
+	            					echo $descripcion;
+	            				?></span></h4>
+	                    </div>
+						<form action="Ofertas.php" method="POST">
+		                        <input type="hidden" name="id" value=
+		                        <?php 
+		                        	echo $idProducto;
+		                        ?>>
+		                        <button class = "inicio" type="submit" value="Agregar" name ="btnAgregar">
+									<div class = "enlace_btn"> <i class="fas fa-cart-plus"></i> </div>
+								</button>
+	                   	 </form>
+	                	</td></tr>
+        				</table>
+        				<?php
+					}
+				?>
 			</section>
-		</center>
+		</div>
 	</main>
+
+<?php
+    if(isset($_REQUEST["btnAgregar"])){
+        if(isset($_SESSION['idSesion'])){
+        	$id = $_REQUEST["id"];
+
+        	require 'IniciodeSesion/Log.php';
+
+        	$usuario = $_SESSION['idSesion'];
+
+
+        	$query = "SELECT COUNT(*) as existe FROM carrito WHERE idProducto = '$id'AND idUsuario = '$usuario'";
+			$consulta = mysqli_query($conexion, $query);
+			$resultado = mysqli_fetch_array($consulta);
+
+			if($resultado['existe'] > 0){
+				$query = "UPDATE carrito SET cantidad = cantidad + 1 WHERE idProducto = '$id'AND idUsuario = '$usuario'";
+				$subir = mysqli_query($conexion, $query);
+			}
+			else{
+				$query = "INSERT INTO carrito VALUES(0, '$usuario', '$id', 1)";
+				$subir = mysqli_query($conexion, $query);
+			}	
+
+			echo "<script>alert('¡Se ha agregado el producto al carrito!');</script>";
+
+	    }else{
+	    	echo "<script>alert('Inicia sesión para comprar');</script>";
+	    }
+    }
+    ?>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.js"
   	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -169,6 +192,6 @@
   	crossorigin="anonymous"></script>
 
 	<script src="./js/scripts.js"></script>
-	        
+
 </body>
 </html>

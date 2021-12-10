@@ -39,10 +39,12 @@
 		<form action ="">
 			<div class = "barra-superior">
 				<img src="img/logo.png" class ="logo">
-				<input type = "text" id ="task">
-				<button class = "btn btn-search" id="btnSearch">
+				<form action ="Buscar.php" method = "POST">
+					<input type = "text" id ="task" name ="busqueda">
+					<button type = "submit" name ="buscar" class = "btn btn-search" id="btnSearch">
 					<i class="fas fa-search"></i>
-				</button>
+					</button>
+				</form>	
 				<?php 
 					if(isset($usuario)){
 						echo "<a href = 'IniciodeSesion/CerrarSesion.php' class = 'login'>

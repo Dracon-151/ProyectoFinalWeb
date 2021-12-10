@@ -6,11 +6,10 @@ session_start();
 
 $usuario = $_POST['usuario'];
 $contrasena = $_POST['contrasena'];
+$password = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
 
 $query = "SELECT COUNT(*) as usuariosValidos FROM usuario WHERE email = '$usuario' AND contrasena = '$contrasena'";
-
 $consulta = mysqli_query($conexion, $query);
-
 $resultado = mysqli_fetch_array($consulta);
 
 if($resultado['usuariosValidos']> 0){

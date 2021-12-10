@@ -8,7 +8,7 @@ if($_POST['contrasena'] == $_POST['contrasena2'] AND $_POST['contrasena'] != "")
 {
 	 $nombre = $_POST['nombre'];
 	 $usuario = $_POST['usuario'];
-	 $contrasena = $_POST['contrasena'];
+	 $contrasena = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
 	 
 	$query = "SELECT COUNT(*) as usuariosValidos FROM usuario WHERE email = '$usuario'";
 
