@@ -38,7 +38,7 @@
 
 	<header class ="header">
 		<form action ="">
-			<div class = "barra-superior">
+			<div class = "">
 				<img src="img/logo.png" class ="logo">
 				<form action ="Buscar.php" method = "POST">
 					<input type = "text" id ="task" name ="busqueda">
@@ -183,6 +183,14 @@
   	crossorigin="anonymous"></script>
 
 	<script src="./js/scripts.js"></script>
-
+	<?php
+		if(isset($_GET['buscar'])){
+		$_SESSION['busqueda'] = $_GET['busqueda'];
+		var_dump($_SESSION['busqueda']);
+		?>
+    	<script>window.location.replace("http://localhost/ProyectoFinalWeb/Busqueda.php");</script>
+   		<?php 
+	}
+	?> 
 </body>
 </html>
