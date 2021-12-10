@@ -364,8 +364,6 @@ table.product__price{
 .carrito_compras{
 	display: grid;
 	grid-gap: 5px;
-	padding-left: 50px;
-	padding-right: 50px;
 }
 
 .img_producto{
@@ -520,8 +518,6 @@ ul{
 	.carrito_compras{
 	display: grid;
 	grid-gap: 10px;
-	padding-left: 100px;
-	padding-right: 100px;
 	}
 
 	.campo_cantidad_2{
@@ -552,8 +548,6 @@ ul{
 	.carrito_compras{
 	display: grid;
 	grid-gap: 15px;
-	padding-left: 200px;
-	padding-right: 200px;
 	}
 
 	.campo_cantidad_2{
