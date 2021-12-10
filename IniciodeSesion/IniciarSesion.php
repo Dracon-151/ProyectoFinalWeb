@@ -5,8 +5,7 @@ require 'Log.php';
 session_start();
 
 $usuario = $_POST['usuario'];
-$contrasena = $_POST['contrasena'];
-$password = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
+$contrasena = md5($_POST['contrasena']);
 
 $query = "SELECT COUNT(*) as usuariosValidos FROM usuario WHERE email = '$usuario' AND contrasena = '$contrasena'";
 $consulta = mysqli_query($conexion, $query);
